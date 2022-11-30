@@ -26,6 +26,17 @@ app.get('/', (req, res, next) => {
   res.status(200).send('Hello World!!!');
 });
 
+// app.get('helloQuery', validator, (req, res, next) => {
+app.get('/helloQuery', (req, res, next) => {
+  res.status(200).send(`Hello ${req.query.name}`);
+});
+
+app.get('/helloPath/:individual', (req, res, next) => {
+  res.status(200).send(`Hello ${req.params.individual}`);
+});
+
+
+
 app.get('/bad', (req, res, next) => {
   next('We have a problem');
 });
